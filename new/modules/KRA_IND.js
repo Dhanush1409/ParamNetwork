@@ -1,7 +1,11 @@
-const mongoose = require('mongoose')
-var KRASchema = require("../modules/KRA")
-var KRA_DEPSchema =  new mongoose.Schema({
-    DepartmentID:{type:Number,required:false,unique:true},
+var mongoose = require('mongoose')
+var KRASchema = require('../modules/KRA')
+var KRA_INDSchema = new mongoose.Schema({
+    EmployeeName:{type:String,required:false},
+    Position:{type:String,required:false},
+    EmployeeStartDate:{type:Date,required:false},
+    EmployeeID:{type:Number,required:false,unique:true},
+    DepartmentID:{type:Number,required:false},
     Department:{type:String,required:false},
     DepartmentSuperVisior:{type:String,required:false},
     TodaysDate:{type:String,required:false},
@@ -17,6 +21,6 @@ var KRA_DEPSchema =  new mongoose.Schema({
         Description:{type:String,required:false},
     },
     KRA:[KRASchema]
-},)
-const model = mongoose.model('KRA_DEP',KRA_DEPSchema);
+})
+var model = mongoose.model("KRA_IND",KRA_INDSchema)
 module.exports = model
